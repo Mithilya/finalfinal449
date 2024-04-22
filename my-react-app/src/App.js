@@ -112,7 +112,7 @@ function App() {
 
           {submitted && (
             <p className="mt-3">
-              You submitted: <strong>{hasPet} <p>Guess what? I really don't care if you have a pet</p></strong>
+              You submitted: <strong>{hasPet} <h2>Guess what? I really don't care if you have a pet</h2></strong>
             </p>
           )}
         </header>
