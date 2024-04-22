@@ -7,6 +7,18 @@ function App() {
 
   const [catFact, setCatFact] = useState('');
   const [dogFact, setDogFact] = useState('');
+  const [hasPet, setHasPet] = useState('');
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    setSubmitted(true);
+  };
+
+  const handleChange = (event) => {
+    setHasPet(event.target.value);
+  };
+  
 
   const fetchCatFact = () =>{
     Axios.get('https://catfact.ninja/fact')
@@ -41,9 +53,12 @@ function App() {
 
 
   return (
-    <div style={{ backgroundColor: '#cceeff', minHeight: '100vh' }}>
+    <div style={{ backgroundColor: '#E4E4E4', minHeight: '100vh' }}>
       <div className="container mx-auto px-4">
         <header className="text-center">
+
+
+
 
         <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
         <div className="container">
@@ -51,10 +66,14 @@ function App() {
         </div>
       </nav>
 
+
+
           <h2 className="text-lg mb-4">
-            Do you have a pet? Well, it doesn't matter; learn about cats and dogs now by generating facts.
+            Do you have a pet? Well, it doesn't matter. Learn about cats and dogs now by generating facts.
           </h2>
 
+
+          
           <div className="my-6">
             <h3 className="text-2xl font-semibold mb-3">Do you want to learn about cats? Generate facts.</h3>
             <button onClick={fetchCatFact} className="btn btn-primary btn-lg">
@@ -63,6 +82,8 @@ function App() {
             <p className="text-green-800 mt-2">{catFact}</p>
           </div>
 
+
+
           <div className="my-6">
             <h3 className="text-2xl font-semibold mb-3">Do you want to learn about dogs? Generate facts.</h3>
             <button onClick={fetchDogFact} className="btn btn-primary btn-lg">
@@ -70,6 +91,30 @@ function App() {
               </button>
             <p className="text-blue-800 mt-2">{dogFact}</p>
           </div>
+
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="petInput" className="form-label">Do you have a pet?</label>
+              <input
+                type="text"
+                className="form-control"
+                id="petInput"
+                placeholder="Enter Yes or No"
+                value={hasPet}
+                onChange={handleChange}
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
+          </form>
+
+
+          {submitted && (
+            <p className="mt-3">
+              You submitted: <strong>{hasPet} <p>Guess what? I really don't care if you have a pet</p></strong>
+            </p>
+          )}
         </header>
       </div>
     </div>
