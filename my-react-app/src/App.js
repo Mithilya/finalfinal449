@@ -41,21 +41,37 @@ function App() {
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-  
-        <h1 className="text-3xl font-bold mb-4">Pet Facts Generator</h1>
-        <h2>Do you have a pet? Well, it doesn't matter. Learn about cats and dogs now by generating facts.</h2>
-  
-        <h3>Do you want to learn about cats? Generate facts.</h3>
-        <button onClick={fetchCatFact}>Generate Cat Fact</button>
-        <p>{catFact}</p>
-  
-        <h3>Do you want to learn about dogs? Generate facts.</h3>
-        <button onClick={fetchDogFact}>Generate Dog Fact</button>
-        <p>{dogFact}</p>
-  
-      </header>
+    <div style={{ backgroundColor: '#cceeff', minHeight: '100vh' }}>
+      <div className="container mx-auto px-4">
+        <header className="text-center">
+
+        <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div className="container">
+          <span className="navbar-brand mb-0 h1">Pet Facts Generator</span>
+        </div>
+      </nav>
+
+          <h2 className="text-lg mb-4">
+            Do you have a pet? Well, it doesn't matter; learn about cats and dogs now by generating facts.
+          </h2>
+
+          <div className="my-6">
+            <h3 className="text-2xl font-semibold mb-3">Do you want to learn about cats? Generate facts.</h3>
+            <button onClick={fetchCatFact} className="btn btn-primary btn-lg">
+                Generate Cat Fact
+              </button>
+            <p className="text-green-800 mt-2">{catFact}</p>
+          </div>
+
+          <div className="my-6">
+            <h3 className="text-2xl font-semibold mb-3">Do you want to learn about dogs? Generate facts.</h3>
+            <button onClick={fetchDogFact} className="btn btn-primary btn-lg">
+                Generate Dog Fact
+              </button>
+            <p className="text-blue-800 mt-2">{dogFact}</p>
+          </div>
+        </header>
+      </div>
     </div>
   );
 }
