@@ -94,7 +94,7 @@ function App() {
 
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
-              <label htmlFor="petInput" className="form-label">Do you have a pet?</label>
+              <label htmlFor="petInput" className="form-label"> <h4>Do you have a pet?</h4></label>
               <input
                 type="text"
                 className="form-control"
